@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../assets/img/logo.svg';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/icons8-github.svg';
-import navIcon3 from '../assets/img/nav-icon3.svg';
-import { HashLink } from 'react-router-hash-link';
-import cv from '../assets/cv/jaimePereiraPallasCV_En.pdf'
+import cv from '../assets/cv/Jaime_Pereira_Pallas_CV.pdf'
 import {
   BrowserRouter as Router
 } from "react-router-dom";
@@ -37,9 +34,6 @@ export const NavBar = () => {
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
-          <Navbar.Brand href="/">
-            <img src={logo} alt="Logo" />
-          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
@@ -57,10 +51,10 @@ export const NavBar = () => {
                 <a href="https://github.com/jaimepereirapallas" target="_blank" rel="noopener noreferrer"><img src={navIcon2} alt="" /></a>
               </div>
               <a 
-                href={cv}
+                href="/resume.html"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="vvd" // Mantiene el estilo del botón
+                className="vvd"
               >
               <button className="vvd"><span>View My Resume</span></button>
               </a>

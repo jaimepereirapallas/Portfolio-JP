@@ -14,9 +14,9 @@ export const Banner = () => {
   const [index, setIndex] = useState(1);
   const [showPopup, setShowPopup] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const toRotate = ["Web Developer", "Web Designer", "UI/UX Designer"];
+  const toRotate = ["Software Developer", "Cybersecurity Enthusiast", "Cloud Engineer"];
   const period = 2000;
-  const email = "jpereira.contacto@gmail.com"; // Reemplaza con tu correo electrónico
+  const email = "jpereira.contacto@gmail.com"; 
   const buttonRef = useRef(null);
   const popupRef = useRef(null);
 
@@ -84,8 +84,8 @@ export const Banner = () => {
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <span className="tagline">Welcome to my Portfolio</span>
-                  <h1>{`Hi! I'm Jaime Pereira`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]' style={{ display: 'block' }}><span className="wrap">{text}</span></span></h1>
-                  <p>I'm not a robot<br />I'm a TI Engineer with a passion for databases, web development, and DevOps.</p>
+                  <h1>{`Hi! I'm Jaime Pereira`} <span className="txt-rotate" dataPeriod="1000" data-rotate={toRotate} style={{ display: 'block' }}><span className="wrap">{text}</span></span></h1>
+                  <p>I'm not a robot<br />I'm a TI Engineer with a passion for databases, cybersecurity, and cloud computing.</p>
                   <button className="button-lets" ref={buttonRef} onClick={() => setShowPopup(!showPopup)}>
                     Let’s Connect <ArrowRightCircle size={25} />
                   </button>

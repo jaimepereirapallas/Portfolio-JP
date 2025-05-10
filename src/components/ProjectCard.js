@@ -9,17 +9,19 @@ export const ProjectCard = ({ title, description, imgUrl, repoUrl, button_name }
         <div className="proj-txtx">
           <h4>{title}</h4>
           <span>{description}</span>
-          <div style={{ marginTop: '10px' }}>
-            <Button 
-              href={repoUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              variant="primary"
-              className="project-btn-dark"
-            >
-              {button_name} 🔗 
-            </Button>
-          </div>
+          {repoUrl && (
+            <div style={{ marginTop: '10px' }}>
+              <Button 
+                href={repoUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                variant="primary"
+                className="project-btn-dark"
+              >
+                {button_name} 🔗 
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </Col>

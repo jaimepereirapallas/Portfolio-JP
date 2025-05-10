@@ -1,11 +1,11 @@
 import { Container, Row, Col } from "react-bootstrap";
-import myPhoto from "../assets/img/self.jpg"; // Reemplaza con la ruta de tu foto
+import myPhoto from "../assets/img/self.jpg"; 
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const AboutMe = () => {
   return (
-    <section className="about-me" id="about">
+    <section className="about-me" id="aboutme">
       <Container>
         <Row>
           <Col size={12} className="text-center">
@@ -24,14 +24,22 @@ export const AboutMe = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div>
+
+                  
                   <p className="about-description">
-                    Hi, I'm Jaime Pereira, a passionate Computer Engineer with a keen interest in databases, web development, and DevOps.
-                    With years of experience in the tech field, I've developed strong skills in building efficient and robust systems.
-                    I love solving complex problems, collaborating with others, and continuously learning new technologies.
+                  I'm a passionate and highly motivated Software Developer currently completing my Bachelor's degree in Computer Science at the University of A Coruña, Spain. 
+                  I thrive on solving complex problems, embracing innovation, and constantly expanding my knowledge.
                   </p>
                   <p className="about-description">
-                    In my free time, I enjoy exploring new tech trends, working on personal projects, and sharing knowledge with the community.
-                    I'm always looking forward to the next challenge and the opportunity to make an impact through technology.
+                  With a strong foundation in cybersecurity, DevOps, and cloud computing, I’m committed to building impactful, forward-thinking solutions that address real-world challenges. 
+                  I take pride in writing clean, efficient code and collaborating within dynamic, goal-driven teams.
+                  </p>
+
+                  <p className="about-description">
+                  I’m actively seeking new opportunities—whether on-site, remote, or involving travel—and I'm especially interested in roles abroad where I can contribute my skills, creativity, and energy to cutting-edge projects in the global tech space.
+                  </p>
+                  <p className="about-description">
+                  If you're looking for a developer who’s driven by curiosity and dedicated to making a difference through technology, let’s connect.
                   </p>
                 </div>
               }

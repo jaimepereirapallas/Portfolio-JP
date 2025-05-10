@@ -1,6 +1,3 @@
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
 import js from "../assets/img/javascript.svg";
 import mysql from "../assets/img/mysql.svg";
 import react from "../assets/img/react.svg";
@@ -8,8 +5,6 @@ import intellij from "../assets/img/intellij.svg";
 import docker from "../assets/img/docker.svg";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import arrow1 from "../assets/img/arrow1.svg";
-import arrow2 from "../assets/img/arrow2.svg";
 import colorSharp from "../assets/img/color-sharp.png"
 
 export const Skills = () => {
@@ -42,23 +37,23 @@ export const Skills = () => {
                         <h2>Skills</h2>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                             <div className="item">
-                                <img src={js} alt="Image" />
+                                <img src={js} alt="JavaScript" />
                                 <h5>JavaScript</h5>
                             </div>
                             <div className="item">
-                                <img src={mysql} alt="Image" />
+                                <img src={mysql} alt="MySQL" />
                                 <h5>MySQL</h5>
                             </div>
                             <div className="item">
-                                <img src={docker} alt="Image" />
+                                <img src={docker} alt="Docker" />
                                 <h5>Docker</h5>
                             </div>
                             <div className="item">
-                                <img src={intellij} alt="Image" />
+                                <img src={intellij} alt="Intellij" />
                                 <h5>Intellij</h5>
                             </div>
                             <div className="item">
-                                <img src={react} alt="Image" />
+                                <img src={react} alt="React" />
                                 <h5>React</h5>
                             </div>
                         </Carousel>
