@@ -86,28 +86,28 @@ export const Banner = () => {
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>{`Hi! I'm Jaime Pereira`} <span className="txt-rotate" dataPeriod="1000" data-rotate={toRotate} style={{ display: 'block' }}><span className="wrap">{text}</span></span></h1>
                   <p>I'm not a robot<br />I'm a TI Engineer with a passion for databases, cybersecurity, and cloud computing.</p>
-                  <button className="button-lets" ref={buttonRef} onClick={() => setShowPopup(!showPopup)}>
-                    Let’s Connect <ArrowRightCircle size={25} />
-                  </button>
-                  {showPopup && (
-                    <div
-                      ref={popupRef}
-                      className="popup"
-                      style={{
-                        position: "absolute",
-                        top: buttonRef.current.offsetTop,
-                        left: buttonRef.current.offsetLeft + buttonRef.current.offsetWidth + 10,
-                      }}
+                  <div className="button-container">
+                    <button 
+                      className={`button-lets ${showPopup ? 'email-button' : ''}`} 
+                      ref={buttonRef} 
+                      onClick={showPopup ? handleCopyEmail : () => setShowPopup(true)}
+                      aria-label={showPopup ? 'Copy email' : 'Show email'} 
+                      title={showPopup ? 'Copy email to clipboard' : 'Show email'}
+                      style={{ color: 'white' }}
                     >
-                      <div className="email-container"> {/* Contenedor para el email y el botón */}
-                        <p>{email}</p>
-                        <button onClick={handleCopyEmail} className="copy-button" aria-label="Copy email" title="Copy email to clipboard" >
-                        <GoCopy size={20} />
-                        </button>
-                      </div>
-                      {showConfirmation && <p className="confirmation">Email copied!</p>}
-                    </div>
-                  )}
+                      {showPopup ? (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white' }}>
+                          <span className="email-text" style={{ color: 'white', display: 'inline-block' }}>jpereira.contacto@gmail.com</span>
+                          <GoCopy size={20} style={{ color: 'white' }} />
+                          {showConfirmation && <span className="confirmation">Copied!</span>}
+                        </div>
+                      ) : (
+                        <>
+                          Let's Connect <ArrowRightCircle size={25} />
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
               }
             </TrackVisibility>

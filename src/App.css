@@ -272,6 +272,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.8px;
   display: flex;
   align-items: center;
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 .banner button svg {
   font-size: 25px;
@@ -279,8 +286,19 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transition: 0.3s ease-in-out;
   line-height: 1;
 }
+.banner button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(170, 54, 124, 0.3);
+}
+
 .button-lets:hover svg {
   margin-left: 25px;
+  animation: bounce 0.5s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
 }
 .banner img {
   animation: updown 3s linear infinite;
@@ -309,76 +327,71 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 500;
   letter-spacing: 0.8px;
 }
-.popup {
-  background: rgba(18, 18, 18, 0.95);
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  max-width: 360px;
-  width: auto;
-  z-index: 1000;
-  position: absolute;
-  transform: scaleX(0);
-  opacity: 0; 
-  transform-origin: left; 
-  animation: growIn 0.5s forwards;
-}
-
-
-@keyframes growIn {
-  0% {
-    transform: scaleX(0) translateY(-18px); 
-
-    opacity: 0; 
-  }
-  100% {
-    transform:scaleX(1) translateY(-18px);
-    
-    opacity: 1; 
-  }
-}
-
-
-.popup button {
-  color: #fff;
-  font-size: 15px;
-  padding: 8px 16px;
-  font-weight: 700;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 2px;
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: left;
-  transform: translateY(-5px);
-  
-}
-.popup button:hover{
+.button-lets.email-button {
+  min-width: 300px;
+  gap: 12px;
+  position: relative;
+  overflow: visible;
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  color: #fff;
-  font-size: 15px;
-  padding: 8px 16px;
-  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 30px;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 2px;
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: left;
-  transform: translateY(-5px);
+  transition: 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .button-lets.email-button {
+    min-width: 100%;
+    font-size: 16px;
+  }
+}
+
+.button-lets.email-button .email-text {
+  font-family: 'Centra', monospace;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+  color: white !important;
+  display: inline-block;
+  margin-right: 10px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.button-lets.email-button svg {
+  margin-left: 0;
+  transition: transform 0.3s ease;
+}
+
+.button-lets.email-button:hover svg {
+  transform: scale(1.1);
+  margin-left: 0;
 }
 
 .popup button svg {
   margin-left: 0px; 
 }
 .confirmation {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 255, 0, 0.9);
+  color: #fff;
   font-size: 14px;
-  color: #00FF00;
-  margin-top: 15px;
-  animation: fade-in-out 2s ease-in-out;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 15px;
+  pointer-events: none;
+  animation: fade-in-out 1.5s ease-in-out;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
 }
 .email-container {
   display: flex; 
@@ -784,6 +797,95 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .footer a:hover {
   color: #fff; 
+}
+
+/* Email Popup Styles */
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.popup-container {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(31, 38, 135, 0.2);
+  z-index: 1000;
+  width: fit-content;
+  height: fit-content;
+}
+
+@media (min-width: 768px) {
+  .popup-container {
+    top: 0;
+    left: calc(100% + 12px);
+  }
+}
+
+@media (max-width: 767px) {
+  .button-container {
+    display: block;
+    width: 100%;
+  }
+
+  .popup-container {
+    top: calc(100% + 12px);
+    left: 0;
+  }
+}
+
+.copy-email-button {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  width: 32px;
+  height: 32px;
+}
+
+.copy-email-button:hover {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.email-text {
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.copy-email-button:hover .email-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.confirmation {
+  text-align: center;
+  color: #4BB543;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.confirmation {
+  text-align: center;
+  color: #4BB543;
+  margin-top: 5px;
+  font-size: 12px;
 }
 
 
